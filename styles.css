@@ -457,31 +457,25 @@ ul li {
   position: relative;
 }
 
-.card::before,
-.entry::before {
-  content: '🔗';
+.card:has(.inline)::after,
+.entry:has(.inline)::after {
+  content: '';
   position: absolute;
   top: 14px;
   right: 14px;
-  width: 24px;
-  height: 24px;
-  display: grid;
-  place-items: center;
-  font-size: 13px;
-  opacity: 0;
+  width: 20px;
+  height: 20px;
+  background: linear-gradient(135deg, var(--accent) 0%, rgba(0, 123, 255, 0.7) 100%);
+  border-radius: 4px;
+  opacity: 0.25;
   transition: all 0.2s ease;
   pointer-events: none;
 }
 
-.card:has(.inline)::before,
-.entry:has(.inline)::before {
-  opacity: 0.35;
-}
-
-.card:hover::before,
-.entry:hover::before {
-  opacity: 0.7;
-  transform: scale(1.15);
+.card:hover::after,
+.entry:hover::after {
+  opacity: 0.5;
+  transform: scale(1.1);
 }
 
 @media (max-width: 860px) {

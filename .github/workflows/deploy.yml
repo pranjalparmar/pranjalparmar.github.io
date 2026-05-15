@@ -1,0 +1,29 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: Validate HTML
+        run: |
+          echo "Checking if index.html and styles.css exist..."
+          [ -f index.html ] && echo "✓ index.html found" || echo "✗ index.html not found"
+          [ -f styles.css ] && echo "✓ styles.css found" || echo "✗ styles.css not found"
+          [ -f script.js ] && echo "✓ script.js found" || echo "✗ script.js not found"
+      
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: .
+          cname: pranjalparmar.github.io

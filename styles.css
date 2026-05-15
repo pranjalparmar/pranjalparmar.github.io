@@ -82,6 +82,8 @@ h1 {
   color: var(--muted);
   margin-top: 8px;
   font-size: 15px;
+  font-weight: 500;
+  line-height: 1.5;
 }
 
 .icon-list {
@@ -219,10 +221,11 @@ h1 {
 }
 
 .section-heading span {
-  font-size: 12px;
+  font-size: 11px;
   text-transform: uppercase;
-  letter-spacing: 0.3em;
+  letter-spacing: 0.4em;
   color: var(--accent);
+  font-weight: 700;
 }
 
 .section-heading h2 {
@@ -238,10 +241,16 @@ h1 {
   background: var(--paper);
   border-radius: 16px;
   border: 1px solid var(--line);
-  padding: 20px 22px;
+  padding: 24px 28px;
   box-shadow: var(--shadow);
   transition: all 0.2s ease;
   position: relative;
+}
+
+/* Add padding-right for cards with link badges */
+.card:has(.inline),
+.entry:has(.inline) {
+  padding-right: 60px;
 }
 
 .entry:hover,
@@ -264,6 +273,7 @@ h1 {
   font-weight: 700;
   color: var(--accent);
   letter-spacing: -0.3px;
+  margin-bottom: 4px;
 }
 
 .highlight-group {
@@ -275,8 +285,14 @@ h1 {
 .highlight-card {
   border: 1px solid rgba(0, 123, 255, 0.3);
   background: rgba(0, 123, 255, 0.06);
-  border-radius: 14px;
-  padding: 14px 16px;
+  border-radius: 12px;
+  padding: 16px 18px;
+  transition: all 0.2s ease;
+}
+
+.highlight-card:hover {
+  border-color: rgba(0, 123, 255, 0.5);
+  background: rgba(0, 123, 255, 0.1);
 }
 
 .highlight-header {
@@ -288,29 +304,36 @@ h1 {
 
 .highlight-card h4 {
   font-size: 16px;
-  font-weight: 600;
+  font-weight: 700;
   color: var(--accent);
+  margin-bottom: 2px;
 }
 
 .role {
   color: var(--muted);
   font-size: 14px;
-  margin-top: 6px;
+  margin-top: 4px;
+  font-weight: 500;
 }
 
 .meta {
   font-size: 13px;
   color: var(--muted);
+  font-weight: 500;
+  letter-spacing: 0.2px;
 }
 
 ul {
   margin-top: 12px;
-  padding-left: 18px;
+  padding-left: 20px;
   color: var(--muted);
+  font-size: 14px;
+  font-weight: 500;
 }
 
 ul li {
-  margin-bottom: 8px;
+  margin-bottom: 10px;
+  line-height: 1.6;
 }
 
 .inline {
@@ -364,8 +387,10 @@ ul li {
 
 .pill-group h3 {
   font-size: 15px;
-  margin-bottom: 12px;
+  margin-bottom: 14px;
   color: var(--accent);
+  font-weight: 700;
+  letter-spacing: -0.2px;
 }
 
 .pills {
@@ -376,11 +401,12 @@ ul li {
 
 .pills span {
   background: var(--soft);
-  padding: 6px 12px;
+  padding: 7px 14px;
   border-radius: 999px;
   font-size: 12px;
   transition: all 0.2s ease;
   border: 1px solid transparent;
+  font-weight: 500;
 }
 
 .pills span:hover {
@@ -396,13 +422,15 @@ ul li {
 .mini-card {
   background: var(--paper);
   border: 1px solid var(--line);
-  border-radius: 14px;
-  padding: 14px 16px;
-  font-weight: 600;
+  border-radius: 12px;
+  padding: 16px 18px;
+  font-weight: 700;
+  font-size: 15px;
   color: var(--accent);
   box-shadow: var(--shadow);
   transition: all 0.2s ease;
   text-align: center;
+  line-height: 1.4;
 }
 
 .mini-card:hover {
@@ -420,16 +448,23 @@ ul li {
   background: var(--paper);
   border: 1px solid var(--line);
   border-radius: 16px;
-  padding: 20px 22px;
+  padding: 24px 28px;
+  transition: all 0.2s ease;
+}
+
+.contact:hover {
+  border-color: rgba(0, 123, 255, 0.2);
+  box-shadow: 0 12px 32px -10px rgba(0, 123, 255, 0.15);
 }
 
 .contact-links {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
+  gap: 14px;
   margin-top: 10px;
   color: var(--accent);
   font-size: 14px;
+  font-weight: 500;
 }
 
 .footer {
@@ -451,7 +486,7 @@ ul li {
   margin-top: 12px;
 }
 
-/* Link Badge Indicator */
+/* Link Badge Indicator - Refined Positioning */
 .card,
 .entry {
   position: relative;
@@ -461,21 +496,22 @@ ul li {
 .entry:has(.inline)::after {
   content: '';
   position: absolute;
-  top: 14px;
-  right: 14px;
-  width: 20px;
-  height: 20px;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  width: 18px;
+  height: 18px;
   background: linear-gradient(135deg, var(--accent) 0%, rgba(0, 123, 255, 0.7) 100%);
-  border-radius: 4px;
-  opacity: 0.25;
+  border-radius: 3px;
+  opacity: 0.2;
   transition: all 0.2s ease;
   pointer-events: none;
 }
 
 .card:hover::after,
 .entry:hover::after {
-  opacity: 0.5;
-  transform: scale(1.1);
+  opacity: 0.4;
+  transform: translateY(-50%) scale(1.08);
 }
 
 @media (max-width: 860px) {
